@@ -3,15 +3,15 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mhidani <mhidani@student.42.fr>            +#+  +:+       +#+         #
+#    By: mhidani <mhidani@student.42sp.org.br>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/16 10:20:16 by mhidani           #+#    #+#              #
-#    Updated: 2026/03/16 10:45:46 by mhidani          ###   ########.fr        #
+#    Updated: 2026/03/17 17:59:45 by mhidani          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= 
-SINCE		= 2026.03.xx
+NAME		= diamondTrap
+SINCE		= 2026.03.17
 AUTHOR		= mhidani
 LOCAL		= 42SP
 VERSION		= 1.0.0v
@@ -20,7 +20,7 @@ INC_DIR		= includes
 SRC_DIR		= src
 OBJ_DIR		= obj
 
-FILES		= main.cpp
+FILES		= main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
 SRCS		= $(addprefix $(SRC_DIR)/, $(FILES))
 OBJS		= $(addprefix $(OBJ_DIR)/, $(FILES:.cpp=.o))
 
@@ -47,7 +47,7 @@ re: fclean all
 
 banner:
 	@echo "🛸 $(LOCAL) - [CPP-03 Exercise 03]"
-	@echo "? $(VERSION)"
+	@echo "Now It Feels Strange $(VERSION)"
 	@echo "$(AUTHOR) $(SINCE)"
 
 $(NAME): $(OBJS)
