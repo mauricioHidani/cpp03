@@ -6,7 +6,7 @@
 /*   By: mhidani <mhidani@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 09:17:05 by mhidani           #+#    #+#             */
-/*   Updated: 2026/03/17 15:24:56 by mhidani          ###   ########.fr       */
+/*   Updated: 2026/03/17 18:16:41 by mhidani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "ClapTrap.hpp"
 #include <iostream>
 
-class ScavTrap: public ClapTrap {
+class ScavTrap: virtual public ClapTrap {
 public:
 	ScavTrap(std::string name);
 	virtual ~ScavTrap(void);
