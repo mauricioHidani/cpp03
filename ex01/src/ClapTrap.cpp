@@ -3,26 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhidani <mhidani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mhidani <mhidani@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/15 19:50:17 by mhidani           #+#    #+#             */
-/*   Updated: 2026/03/17 10:06:27 by mhidani          ###   ########.fr       */
+/*   Updated: 2026/03/17 15:08:24 by mhidani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap(std::string name):
-	_name(name), 
-	_hitPoints(10), 
-	_energyPoints(10), 
-	_attackDamage(0) {
+	_name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0) {
 	std::cout << getName() << " is alive" << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &other):
-	_name(other.getName()), 
-	_hitPoints(other.getHitPoints()), 
+	_name(other.getName()), _hitPoints(other.getHitPoints()), 
 	_energyPoints(other.getEnergyPoints()), 
 	_attackDamage(other.getAttackDamage()) {
 	std::cout << getName() 
@@ -31,10 +27,12 @@ ClapTrap::ClapTrap(const ClapTrap &other):
 }
 
 ClapTrap::~ClapTrap(void) {
+	std::cout << getName();
 	if (getHitPoints() > 0)
-		std::cout << getName() << " is dead" << std::endl;
+		std::cout << " is dead";
 	else if (getHitPoints() <= 0)
-		std::cout << getName() << " is decomposing" << std::endl;
+		std::cout << " is decomposing";
+	std::cout << std::endl;
 }
 
 std::string	ClapTrap::getName(void) const {

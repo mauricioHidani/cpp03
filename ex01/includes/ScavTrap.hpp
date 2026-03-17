@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhidani <mhidani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mhidani <mhidani@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 09:17:05 by mhidani           #+#    #+#             */
-/*   Updated: 2026/03/17 10:08:25 by mhidani          ###   ########.fr       */
+/*   Updated: 2026/03/17 15:24:56 by mhidani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,6 @@ public:
 	ScavTrap(std::string name);
 	virtual ~ScavTrap(void);
 
+	void	attack(const std::string &target);
 	void	guardGate(void);
 };
