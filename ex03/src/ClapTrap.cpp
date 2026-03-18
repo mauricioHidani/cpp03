@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhidani <mhidani@student.42sp.org.br>      +#+  +:+       +#+        */
+/*   By: mhidani <mhidani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/15 19:50:17 by mhidani           #+#    #+#             */
-/*   Updated: 2026/03/17 15:08:24 by mhidani          ###   ########.fr       */
+/*   Updated: 2026/03/18 11:12:08 by mhidani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,23 @@
 
 ClapTrap::ClapTrap(std::string name):
 	_name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0) {
-	std::cout << getName() << " is alive" << std::endl;
+	std::cout << _name << " is alive: ClapTrap" << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &other):
 	_name(other.getName()), _hitPoints(other.getHitPoints()), 
 	_energyPoints(other.getEnergyPoints()), 
 	_attackDamage(other.getAttackDamage()) {
-	std::cout << getName() 
+	std::cout << _name 
 			  << " is alive and has the same attributes as " << other.getName() 
 			  << std::endl;
 }
 
 ClapTrap::~ClapTrap(void) {
-	std::cout << getName();
-	if (getHitPoints() > 0)
+	std::cout << _name;
+	if (_hitPoints > 0)
 		std::cout << " is dead";
-	else if (getHitPoints() <= 0)
+	else if (_hitPoints <= 0)
 		std::cout << " is decomposing";
 	std::cout << std::endl;
 }
@@ -58,19 +58,19 @@ void	ClapTrap::setAttackDamage(const int amount) {
 }
 
 void	ClapTrap::attack(const std::string &target) {
-	if (target.empty() || getHitPoints() <= 0 || getEnergyPoints() == 0) {
-		std::cout << getName() << " can't do that!" << std::endl;
+	if (target.empty() || _hitPoints <= 0 || _energyPoints == 0) {
+		std::cout << _name << " can't do that!" << std::endl;
 		return ;
 	}
-	_energyPoints = getEnergyPoints() > 0 ? getEnergyPoints() - 1: 0;
-	std::cout << getName() << " attacks " << target << ", "
-			  << "causing " << getAttackDamage() << " points of damage"
+	_energyPoints = _energyPoints > 0 ? _energyPoints - 1: 0;
+	std::cout << _name << " attacks " << target << ", "
+			  << "causing " << _attackDamage << " points of damage"
 			  << std::endl;
 }
 
 void	ClapTrap::takeDamage(unsigned int amount) {
-	if (getHitPoints() <= 0) {
-		std::cout << getName() << " is dead, can't take any more damage"
+	if (_hitPoints <= 0) {
+		std::cout << _name << " is dead, can't take any more damage"
 				  << std::endl;
 		return ;
 	}
@@ -81,13 +81,13 @@ void	ClapTrap::takeDamage(unsigned int amount) {
 }
 
 void	ClapTrap::beRepaired(unsigned int amount) {
-	if (amount <= 0 || getEnergyPoints() <= 0) {
-		std::cout << getName() << " can't do that!\n";
+	if (amount <= 0 || _energyPoints <= 0) {
+		std::cout << _name << " can't do that!\n";
 		return ;
 	}
 	_hitPoints += amount;
-	_energyPoints = getEnergyPoints() > 0 ? getEnergyPoints() - 1: 0;
-	std::cout << getName() << " has regained his health in " 
+	_energyPoints = _energyPoints > 0 ? _energyPoints - 1: 0;
+	std::cout << _name << " has regained his health in " 
 			  << amount << " points"
 			  << std::endl;
 }
